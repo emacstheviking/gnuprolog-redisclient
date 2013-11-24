@@ -93,8 +93,10 @@ you started. The "rule" is that the functor name of the argument to `redis()` is
 the first part of the command and the arguments are then used to form the
 remainder of the command.
 
+```prolog
     | ?- redis(set(hairy_key_name, "a value")).
     | ?- redis(get(hairy_key_name, bulk("a value")).
+```
 
 Basically, load up your redis with data and then play with it. The rule is:
 
