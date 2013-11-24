@@ -98,6 +98,34 @@ Basically, load up your redis with data and then play with it. The rule is:
 
 *redis( <command> ( arg1, arg2, ... argN ))*
 
+Here are some more console mode examples:
+
+	| ?- redis(flushall).
+	| ?- redis(set(test_string, 'GNU Prolog')).
+ 	| ?- redis(append(test_string, ' is Cool')).
+	| ?- redis(echo('GNU Prolog rocks!')).
+	| ?- redis(lpush(test_list, 42)).
+	| ?- redis(llen(test_list)).
+	| ?- redis(lrange(test_list, 0, -1)).
+	| ?- redis(lpop(test_list)).
+	| ?- redis(rpop(test_list)).
+	| ?- redis(exists(test_hash), number(0)).
+	| ?- redis(hset(test_hash, name, 'Emacs The Viking'), number(1)).
+	| ?- redis(hmset(test_hash,	new_field_1, "Hello", new_field_2, "World")).
+	| ?- redis(hdel(test_hash, unknown)).
+	| ?- redis(hlen(test_hash)).
+	
+
+Redis commands consisting of multiple verbs
+-------------------------------------------
+Some commands are more than one word, such as `client setname` for example, and `config get` and `config set`. The same rule applies however, functor name is the first verb and the rest is still just argument data:
+
+	redis_do(C, client(setname, "Objitsu"), status(Set)),
+	redis_do(C, client(getname), bulk(Get)),
+	redis_do(C, config(set, timeout, 86400), status(Set)),
+	redis_do(C, config(get, timeout), [bulk(Key), bulk(Val)]),
+
+
 All response data goes to the console and that's it. Simples. Each line of data will be preceded by an indicator of the type that was returned:
 
   * NUMBER: an integer was decoded
