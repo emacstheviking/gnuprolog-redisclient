@@ -144,6 +144,8 @@ Program Examples
 
 Redis returns either integers or (mostly) strings or lists of them. Initially I returned everything as strings but then I went a little further and eventually for purely selfish reasons I decided that I would wrap the returned data in a functor that described the underlying Redis return type in case the application code wanted or needed to know.
 
+**Please read the tests for lots of examples on how to use in your code.**
+
 The functor names used are as follows:
 
  * number(X) -- an integer reply was decoded, ":" in redis speak.
