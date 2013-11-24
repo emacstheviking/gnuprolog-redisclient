@@ -1,0 +1,6 @@
+#/bin/bash
+for f in $(find . -name "test_*.pl");
+do
+    gprolog --consult-file $f
+done
+
