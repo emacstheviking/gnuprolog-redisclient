@@ -84,8 +84,8 @@ For example, here is how you would list all the keys or just some of the keys
 matching a pattern:
 
 ```prolog
-    | ?- redis(keys(*)).
-    | ?- redis(keys('users:*:last_logged_in_time')).
+| ?- redis(keys(*)).
+| ?- redis(keys('users:*:last_logged_in_time')).
 ```
 
 Atoms or strings are acceptable. Here are some other example commands to get
@@ -102,31 +102,34 @@ Basically, load up your redis with data and then play with it. The rule is:
 
 Here are some more console mode examples:
 
-	| ?- redis(flushall).
-	| ?- redis(set(test_string, 'GNU Prolog')).
- 	| ?- redis(append(test_string, ' is Cool')).
-	| ?- redis(echo('GNU Prolog rocks!')).
-	| ?- redis(lpush(test_list, 42)).
-	| ?- redis(llen(test_list)).
-	| ?- redis(lrange(test_list, 0, -1)).
-	| ?- redis(lpop(test_list)).
-	| ?- redis(rpop(test_list)).
-	| ?- redis(exists(test_hash), number(0)).
-	| ?- redis(hset(test_hash, name, 'Emacs The Viking'), number(1)).
-	| ?- redis(hmset(test_hash,	new_field_1, "Hello", new_field_2, "World")).
-	| ?- redis(hdel(test_hash, unknown)).
-	| ?- redis(hlen(test_hash)).
+```prolog
+| ?- redis(flushall).
+| ?- redis(set(test_string, 'GNU Prolog')).
+| ?- redis(append(test_string, ' is Cool')).
+| ?- redis(echo('GNU Prolog rocks!')).
+| ?- redis(lpush(test_list, 42)).
+| ?- redis(llen(test_list)).
+| ?- redis(lrange(test_list, 0, -1)).
+| ?- redis(lpop(test_list)).
+| ?- redis(rpop(test_list)).
+| ?- redis(exists(test_hash), number(0)).
+| ?- redis(hset(test_hash, name, 'Emacs The Viking'), number(1)).
+| ?- redis(hmset(test_hash,	new_field_1, "Hello", new_field_2, "World")).
+| ?- redis(hdel(test_hash, unknown)).
+| ?- redis(hlen(test_hash)).
+```
 	
 
 Redis commands consisting of multiple verbs
 -------------------------------------------
 Some commands are more than one word, such as `client setname` for example, and `config get` and `config set`. The same rule applies however, functor name is the first verb and the rest is still just argument data:
 
-	redis_do(C, client(setname, "Objitsu"), status(Set)),
-	redis_do(C, client(getname), bulk(Get)),
-	redis_do(C, config(set, timeout, 86400), status(Set)),
-	redis_do(C, config(get, timeout), [bulk(Key), bulk(Val)]),
-
+```prolog
+redis_do(C, client(setname, "Objitsu"), status(Set)),
+redis_do(C, client(getname), bulk(Get)),
+redis_do(C, config(set, timeout, 86400), status(Set)),
+redis_do(C, config(get, timeout), [bulk(Key), bulk(Val)]),
+```
 
 All response data goes to the console and that's it. Simples. Each line of data will be preceded by an indicator of the type that was returned:
 
@@ -174,19 +177,23 @@ redis_disconnect(C).
 
 What does X look like? Well if X contained a list of names it might look like:
 
-    | ?- redis_connect(C),redis_do(C,lrange(my_list,0,-1),X), redis_disconnect(C).
+```prolog
+| ?- redis_connect(C),redis_do(C,lrange(my_list,0,-1),X), redis_disconnect(C).
 
-    C = redis('$stream'(7),'$stream'(8),6)
-    X = [bulk([65,108,98,101,114,116]), bulk([66,101,114,116,114,97,110,100]),
-         bulk([69,114,105,99]), bulk([83,101,97,110])]
+C = redis('$stream'(7),'$stream'(8),6)
+X = [bulk([65,108,98,101,114,116]), bulk([66,101,114,116,114,97,110,100]),
+     bulk([69,114,105,99]), bulk([83,101,97,110])]
+```
 
 So you see, you get a list of bulk(X) values each containing the names. If you want a comparison on output styles, here is the redis() predicate output:
 
-    | ?- redis(lrange(my_list,0,-1)).
-    STRING: Albert
-    STRING: Bertrand
-    STRING: Eric
-    STRING: Sean
+```prolog
+| ?- redis(lrange(my_list,0,-1)).
+STRING: Albert
+STRING: Bertrand
+STRING: Eric
+STRING: Sean
+```
 
 Note that the console predicate preceded the data with its type indicator, this maps to the types from Redis. This is just so as you can see what actually came back.
 
