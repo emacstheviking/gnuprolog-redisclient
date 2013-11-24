@@ -91,7 +91,7 @@ remainder of the command.
 
 ```prolog
 | ?- redis(set(hairy_key_name, "a value")).
-| ?- redis(get(hairy_key_name, bulk("a value")).
+| ?- redis(get(hairy_key_name)).
 ```
 
 Basically, load up your redis with data and then play with it. The rule is:
