@@ -98,7 +98,7 @@ remainder of the command.
 
 Basically, load up your redis with data and then play with it. The rule is:
 
-    **redis( <command> ( arg1, arg2, ... argN ))**
+  **redis( <command> ( arg1, arg2, ... argN ))**
 
 Here are some more console mode examples:
 
