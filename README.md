@@ -24,7 +24,7 @@ I wrote a very simple unit testing framework for this. In the folder `tests` you
 
     ./runalltests'
 
-which outputs a very simple trace of the tests. *Make sure Redis is running* before you start it. If it hangs then you will jave to CTRL-C and then quit GNU Prolog and try again.
+which outputs a very simple trace of the tests. *Make sure Redis is running* before you start it. If it hangs then you will have to CTRL-C and then quit GNU Prolog and try again.
 
 The test framework is in `testing_framework.pl`  and is as simple as I could make it. Prolog is ideally suited for this and so as I got the hang of it I realised that I could rely on Unification more generally in my tests scripts and resort to using `tf_equals` only when a test failed and needed sorting out. Again, it's simple but effective and did the job.
 
