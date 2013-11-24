@@ -57,7 +57,7 @@ First *ensure that Redis is running*, obvious I know but... I wrote this
 against 2.8 as I tend to stay with the latest of versions of things when I can
 to try out new features.
 
-Once Redis is running, you can then start a GNU Prolog sesison and load the code:
+Once Redis is running, you can then start a GNU Prolog session and load the code:
 
     Seans-iMac:gprolog-redis seancharles$ 
     Seans-iMac:gprolog-redis seancharles$ gprolog
