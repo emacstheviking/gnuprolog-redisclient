@@ -83,8 +83,10 @@ operator to deconstruct an ad-hoc term into the actual command string.
 For example, here is how you would list all the keys or just some of the keys
 matching a pattern:
 
+```prolog
     | ?- redis(keys(*)).
     | ?- redis(keys('users:*:last_logged_in_time')).
+```
 
 Atoms or strings are acceptable. Here are some other example commands to get
 you started. The "rule" is that the functor name of the argument to `redis()` is
