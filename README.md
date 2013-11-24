@@ -22,7 +22,7 @@ Running the tests
 =================
 I wrote a very simple unit testing framework for this. In the folder `tests` you will find some BASH scripts, the one I use most of the time is 
 
-    ./runalltests'
+    ./runalltests
 
 which outputs a very simple trace of the tests. *Make sure Redis is running* before you start it. If it hangs then you will have to CTRL-C and then quit GNU Prolog and try again.
 
