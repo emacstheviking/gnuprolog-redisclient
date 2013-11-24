@@ -74,11 +74,7 @@ Once Redis is running, you can then start a GNU Prolog session and load the code
     (3 ms) yes
     | ?- 
 
-OK, good to go now with some redis command. This is acheived through the use of
-the `redis()` predicate. There are no actual commands in the code that map to
-any of the redis server commands, instead, because the protocol is so
-beautifully simple and well thought out, it was easier to use the `=..` (univ)
-operator to deconstruct an ad-hoc term into the actual command string.
+OK, we should be good to go now with some redis commands! This is acheived through the use of the `redis()` predicate. There are no actual commands in the code that map to any of the redis server commands, instead, because the protocol is so beautifully simple and well thought out, it was easier to use the `=..` (univ) operator to deconstruct an ad-hoc term into the actual command string.
 
 For example, here is how you would list all the keys or just some of the keys
 matching a pattern:
