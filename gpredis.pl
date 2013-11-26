@@ -1,7 +1,8 @@
 /*
     FILE: gpredis.pl
+    DATE: Nov 2013
     DOES: Provides a simple Redis client for GNU Prolog using only Prolog
-    BY:   Sean Charles  <sean at objitsu dot com>
+    WHOM: Sean Charles  <sean at objitsu dot com>
     
     This program provides a simple Redis client. It does not allow for any
     persistent connection behaviours so pub/sub etc is not possible (yet).
@@ -13,6 +14,8 @@
     Please read the test scripts for full examples on how to use.
    
     BUGS/IDEAS: Please submit to the email address shown above.
+    
+    LICENCE: MIT, see the LICENCE.txt file.
 */
 
 
