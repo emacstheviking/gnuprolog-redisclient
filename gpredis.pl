@@ -15,7 +15,7 @@
    
     BUGS/IDEAS: Please submit to the email address shown above.
     
-    LICENCE: MIT, see the LICENCE.txt file.
+    LICENCE: MIT, see the LICENCE file.
 */
 
 
