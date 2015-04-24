@@ -3,6 +3,10 @@ gnuprolog-redisclient
 A simple but effective pure native GNU Prolog client connecting with Redis
 (min. 2.8), no other libraries required.
 
+UPDATE
+======
+*As of Fri 24 Apr 2015 18:10:55 BST* I can verify that this library is fully functional against Redis 3.0.0 (00000000/0) 64 bit running on my iMac. So, it's still good to go for your projects.
+
 What it does
 ============
 Provides a 100% pure Prolog implementation for GNU Prolog that allows your code to connect to a Redis server, local or remote, and perform the large majority of commands allowing you to have the power of Redis for use in your application.
