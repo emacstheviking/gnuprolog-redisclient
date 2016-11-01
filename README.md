@@ -5,7 +5,7 @@ A simple but effective pure native GNU Prolog client connecting with Redis
 
 UPDATE
 ======
-*As of Fri 24 Apr 2015 18:10:55 BST* I can verify that this library is fully functional against Redis 3.0.0 (00000000/0) 64 bit running on my iMac. So, it's still good to go for your projects.
+*As of Tue 1st Nov 2016* I can verify that this library is fully functional against Redis 3.2.5 (00000000/0) 64 bit running on my iMac. So, it's still good to go for your projects!
 
 What it does
 ============
@@ -24,7 +24,7 @@ If you want it to do something and it doesn't, get in touch and I will see what 
 
 Running the tests
 =================
-I wrote a very simple unit testing framework for this. In the folder `tests` you will find some BASH scripts, the one I use most of the time is 
+I wrote a very simple unit testing framework for this. In the folder `tests` you will find some BASH scripts, the one I use most of the time is
 
     ./runalltests
 
@@ -63,7 +63,7 @@ to try out new features.
 
 Once Redis is running, you can then start a GNU Prolog session and load the code:
 
-    Seans-iMac:gprolog-redis seancharles$ 
+    Seans-iMac:gprolog-redis seancharles$
     Seans-iMac:gprolog-redis seancharles$ gprolog
     GNU Prolog 1.4.4 (64 bits)
     Compiled Oct 13 2013, 17:19:55 with cc
@@ -72,11 +72,11 @@ Once Redis is running, you can then start a GNU Prolog session and load the code
     | ?- [gpredis].
     compiling /Users/seancharles/Documents/github/gprolog-redis/gpredis.pl
     for byte code...
-    /Users/seancharles/Documents/github/gprolog-redis/gpredis.pl compiled, 
+    /Users/seancharles/Documents/github/gprolog-redis/gpredis.pl compiled,
     196 lines read - 15940 bytes written, 9 ms
 
     (3 ms) yes
-    | ?- 
+    | ?-
 
 OK, we should be good to go now with some redis commands! This is acheived through the use of the `redis()` predicate. There are no actual commands in the code that map to any of the redis server commands, instead, because the protocol is so beautifully simple and well thought out, it was easier to use the `=..` (univ) operator to deconstruct an ad-hoc term into the actual command string.
 
@@ -120,7 +120,7 @@ Here are some more console mode examples:
 | ?- redis(hdel(test_hash, unknown)).
 | ?- redis(hlen(test_hash)).
 ```
-	
+
 
 Redis commands consisting of multiple verbs
 -------------------------------------------
@@ -139,7 +139,7 @@ All response data goes to the console and that's it. Simples. Each line of data 
   * STRING: a bulk string was decoded
   * STATUS: a status response was decoded
   * NIL     a nil response (-1) was decoded.
-  
+
 There is a predicate called `redis_print` that you can use to dump out the response in your code if you like when using the programmatic API.
 
 
